@@ -88,3 +88,16 @@ HAVING AVG(Profit) > 100
 ORDER BY AVG(Profit) DESC
 LIMIT 5;
 
+-- 12. Find the states and region with an average profit of more than USD 100 in cases where discount was not given by the store. 
+SELECT 
+    State,
+    Region,
+	ROUND(AVG(Profit),2) AS Profit
+FROM Salestbl
+WHERE Discount = 0
+GROUP BY State, Region
+HAVING AVG(Profit) > 100
+ORDER BY AVG(Profit) DESC
+LIMIT 5;
+    
+
