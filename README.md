@@ -1,7 +1,7 @@
 # SQL Artifacts
 Collection of my SQL Files, Scripts and Database Management Items 
 
-##SQL SELECT Query Fundamentals
+**1. SQL SELECT QUERIES FUNDAMENTALS**
 
 The file init_selectqueries contains the core components of SQL `SELECT` queries which are essential for retrieving data from relational databases. Understanding these queries is a significant skills for data analytics. 
 
