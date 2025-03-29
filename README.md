@@ -1,4 +1,4 @@
-# SQL ARTIFACTS
+# SQL Artifacts
 Collection of my SQL Files, Scripts and Database Management Items 
 
 **Part 1: Unveiling Insights from Sales Data with SQL SELECT Queries**
