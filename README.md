@@ -1,7 +1,7 @@
 # SQL Artifacts
 Collection of my SQL Files, Scripts and Database Management Items 
 
-**Part 1: Unveiling Insights from Sales Data with SQL SELECT Queries**
+## Part 1: Unveiling Insights from Sales Data with SQL SELECT Queries
 
 Welcome to my collection of SQL files, scripts, and database management resources! To kick things off, we willl dive into the heart of data retrieval: the **SELECT query**. In this section, I will be using a sales dataset to illustrate the power and versatility of SQL commands listed below.
 
@@ -18,7 +18,7 @@ Imagine you are a data analyst tasked with extracting meaningful insights from a
 
 Understanding these clauses allows for precise data retrieval and manipulation.
 
-**Part 2: Data Definition Language (DDL)**
+## Part 2: Data Definition Language (DDL)**
 
 Part 2 gives an overview of Data Definition Language (DDL) commands that include **CREATE**, **ALTER**, **DROP**, **TRUNCATE**, and **RENAME** for managing database tables.
 
@@ -26,7 +26,7 @@ Part 2 gives an overview of Data Definition Language (DDL) commands that include
 
 Data Definition Language (DDL) is a subset of SQL used to define and manage the structure of database objects. DDL deals with the schema and not the data. The common DDL commands for tables include:
 
-**CREATE**
+ ### 1. CREATE TABLE 
 * **Purpose:** -Used to create a new table in a databse. **CREATE** defines table name, columns, data type and constraints in the following order:
 
     ```sql
@@ -49,35 +49,35 @@ Data Definition Language (DDL) is a subset of SQL used to define and manage the 
         MonthlySalary DECIMAL(10, 2) NOT NULL   
     );
     ```
-* **Key Elements:**
-    * **Column Names:** Identifies each column.
-    * **Data Types:** Specifies the type of data a column can hold (e.g., `INT`, `VARCHAR`, `DATE`, `DECIMAL`).
-    * **Constraints:** Enforces data integrity rules (e.g., `PRIMARY KEY`, `FOREIGN KEY`, `NOT NULL`, `UNIQUE`, `CHECK`).
+* For Create table command the following elements must be kept in mind:
+    * **Column names** which identifies each column.
+    * **Data types** that Specifies the type of data a column can hold e.g., `INT`, `VARCHAR`, `DATE`, `DECIMAL(x,y).
+    * **Constraints** which enforces data integrity rules e.g., `PRIMARY KEY`, `FOREIGN KEY`, `NOT NULL`, `UNIQUE`, `CHECK`.
 
-### 2. `ALTER TABLE`
+### 2. ALTER TABLE
 
-* **Purpose:** Modifies the structure of an existing table.
-* **Common Operations:**
-    * `ADD COLUMN`: Adds a new column.
-    * `MODIFY COLUMN` (or `ALTER COLUMN`): Changes a column's data type or constraints.
-    * `DROP COLUMN`: Removes a column.
-    * `ADD CONSTRAINT`: Adds a constraint.
-    * `DROP CONSTRAINT`: Removes a constraint.
-    * `RENAME COLUMN`: renames a column.
+* **Purpose:** used to modify a structure of an existing table.
+* **Operations include:**
+    * *ADD COLUMN* which adds a new column to an existing table.
+    * *MODIFY COLUMN* which changes a column's data type or constraints.
+    * *DROP COLUMN* which removes a column.
+    * *ADD CONSTRAINT* which adds a constraint.
+    * *DROP CONSTRAINT* which removes a constraint.
+    * *RENAME COLUMN* which renames a column.
+      
 * **Examples:**
 
     ```sql
-    ALTER TABLE Students ADD COLUMN Email VARCHAR(100);
-    ALTER TABLE Students ALTER COLUMN LastName VARCHAR(100);
-    ALTER TABLE Students DROP COLUMN DateOfBirth;
-    ALTER TABLE Students ADD CONSTRAINT unique_email UNIQUE (Email);
+    ALTER TABLE Employees ADD COLUMN Email VARCHAR(100) NOT NULL AFTER BirthDate;
+    ALTER TABLE Employees ALTER COLUMN LastName VARCHAR(100);
+    ALTER TABLE Employees DROP COLUMN BirthDate;
+    ALTER TABLE Employees ADD CONSTRAINT unique_email UNIQUE (Email);
     ```
 
-### 3. `DROP TABLE`
+### 3. DROP TABLE
 
 * **Purpose:** Deletes an entire table and its data.
-* **Syntax:**
-
+* 
     ```sql
     DROP TABLE table_name;
     ```
@@ -85,16 +85,16 @@ Data Definition Language (DDL) is a subset of SQL used to define and manage the 
 * **Example:**
 
     ```sql
-    DROP TABLE Students;
+    DROP TABLE Employees;
     ```
 
-* **Important Note:** This operation is irreversible (without backups).
+* *Key to Note is that the operation is irreversible (without backups)*.
 
-## Important Considerations
+## Important Notes:
 
-* **Data Integrity:** DDL ensures data consistency through constraints.
-* **Database Design:** Proper DDL usage is crucial for effective database design.
-* **DBMS Specifics:** Syntax and options may vary across different database management systems (MySQL, PostgreSQL, SQL Server, etc.).
-* **Backups:** Always back up your database before executing destructive DDL commands like `DROP TABLE`.
+* **Data Integrity:-** DDL ensures data consistency through constraints.
+* **Database Design:-** Proper DDL usage is crucial for effective database design.
+* **DBMS Specifics:-** Syntax and options may vary across different database management systems (MySQL, PostgreSQL, SQL Server, etc.).
+* **Backups:-** Always back up your database before executing destructive DDL commands like `DROP TABLE`.
 ```
 
