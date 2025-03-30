@@ -142,17 +142,17 @@ Data Definition Language (DDL) is a subset of SQL used to define and manage the 
         EXEC sp_rename 'oldTableNname', 'newTableName';
         ```
 
-* **MySQL)**
+   * **Example:  MySQL**
 
-    ```sql
-    RENAME TABLE OldEmployees TO NewEmployees;
-    ```
+         ```sql
+         RENAME TABLE OldEmployees TO NewEmployees;
+         ```
 
-* **PostgreSQL):**
+  * **Example PostgreSQL:**
 
-    ```sql
-    ALTER TABLE OldEmployees RENAME TO NewEmployees;
-    ```
+       ```sql
+       ALTER TABLE OldEmployees RENAME TO NewEmployees;
+       ```
 
 * **Important Notes:**
     * Always check the specific syntax for your DBMS.
