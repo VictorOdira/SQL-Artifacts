@@ -20,35 +20,30 @@ Understanding these clauses allows for precise data retrieval and manipulation.
 
 **Part 2: Data Definition Language (DDL)**
 
-Part 2 gives an overview of Data Definition Language (DDL) commands that include **CREATE**, **ALTER**, and **DROP** for managing database tables.
+Part 2 gives an overview of Data Definition Language (DDL) commands that include **CREATE**, **ALTER**, **DROP**, **TRUNCATE**, and **RENAME** for managing database tables.
 
-## What is DDL?
+**What is DDL?**
 
-Data Definition Language (DDL) is a subset of SQL used to define and manage the structure of database objects. It deals with the schema, not the data itself.
+Data Definition Language (DDL) is a subset of SQL used to define and manage the structure of database objects. DDL deals with the schema and not the data. The common DDL commands for tables include:
 
-## Key DDL Commands for Tables
+**CREATE**
+* **Purpose:** -Used to create a new table in a databse. **CREATE** defines table name, columns, data type and constraints in the following order:
 
-### 1. `CREATE TABLE`
-
-* **Purpose:** Creates a new table in the database.
-* **Syntax:**
-
-    ```sql
     CREATE TABLE table_name (
-        column1 datatype constraints,
-        column2 datatype constraints,
-        ...
+        col1 datatype constraints,
+        col2 datatype constraints,
+        col3 datatype constraints  
     );
-    ```
 
 * **Example:**
 
-    ```sql
-    CREATE TABLE Students (
-        StudentID INT PRIMARY KEY,
-        FirstName VARCHAR(50) NOT NULL,
-        LastName VARCHAR(50),
-        DateOfBirth DATE
+    **CREATE TABLE** Employee (
+        EmployeeID **INT PRIMARY KEY NOT NULL**,
+        FirstName **VARCHAR(50) NOT NULL**,
+        LastName **VARCHAR(50) NOT NULL**,
+        BirthDate **DATE**,
+        HireDate **DATE NOT NULL**,
+        MonthlySalary **DECIMAL(10, 2) NOT NULL**   
     );
     ```
 
