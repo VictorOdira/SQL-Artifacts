@@ -18,7 +18,7 @@ Imagine you are a data analyst tasked with extracting meaningful insights from a
 
 Understanding these clauses allows for precise data retrieval and manipulation.
 
-## Part 2: Data Definition Language (DDL)**
+## Part 2: Data Definition Language (DDL)
 
 Part 2 gives an overview of Data Definition Language (DDL) commands that include **CREATE**, **ALTER**, **DROP**, **TRUNCATE**, and **RENAME** for managing database tables.
 
@@ -97,4 +97,65 @@ Data Definition Language (DDL) is a subset of SQL used to define and manage the 
 * **DBMS Specifics:-** Syntax and options may vary across different database management systems (MySQL, PostgreSQL, SQL Server, etc.).
 * **Backups:-** Always back up your database before executing destructive DDL commands like `DROP TABLE`.
 ```
+
+### 4. TRUNCATE TABLE
+
+* **Purpose:-** used to remove all rows from a table with the table structure remaining.
+
+    ```sql
+    TRUNCATE TABLE tableName;
+    ```
+
+* **Example:**
+
+    ```sql
+    TRUNCATE TABLE Employees;
+    ```
+
+* **Key Differences from `DELETE`:**
+    * `TRUNCATE` resets auto-incrementing counters. `DELETE` does not.
+    * `TRUNCATE` is generally faster.
+    * `TRUNCATE` cannot be used with a `WHERE` clause. It deletes all rows.
+    * `TRUNCATE` is a DDL command, while `DELETE` is a DML (Data Manipulation Language) command.
+    * `TRUNCATE` generally cannot be rolled back.
+
+### 5. RENAME TABLE
+
+* **Purpose:-** Used to change the name of an existing table.
+
+    * **MySQL:**
+
+        ```sql
+        RENAME TABLE oldTableNname TO newTableName;
+        ```
+
+    * **PostgreSQL:**
+
+        ```sql
+        ALTER TABLE oldTableName RENAME TO newTableName;
+        ```
+
+    * **SQL Server:**
+
+        ```sql
+        EXEC sp_rename 'oldTableNname', 'newTableName';
+        ```
+
+* **Example (MySQL):**
+
+    ```sql
+    RENAME TABLE OldEmployees TO NewEmployees;
+    ```
+
+* **Example (PostgreSQL):**
+
+    ```sql
+    ALTER TABLE OldEmployees RENAME TO NewEmployees;
+    ```
+
+* **Important Notes:**
+    * Always check the specific syntax for your DBMS.
+    * Renaming a table can affect other database objects (views, stored procedures, etc.) that depend on the table.
+```
+
 
