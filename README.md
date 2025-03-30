@@ -79,7 +79,7 @@ Data Definition Language (DDL) is a subset of SQL used to define and manage the 
 * **Purpose:** Deletes an entire table and its data.
 * 
     ```sql
-    DROP TABLE table_name;
+    DROP TABLE tableName;
     ```
 
 * **Example:**
@@ -142,13 +142,13 @@ Data Definition Language (DDL) is a subset of SQL used to define and manage the 
         EXEC sp_rename 'oldTableNname', 'newTableName';
         ```
 
-* **Example (MySQL):**
+* **MySQL)**
 
     ```sql
     RENAME TABLE OldEmployees TO NewEmployees;
     ```
 
-* **Example (PostgreSQL):**
+* **PostgreSQL):**
 
     ```sql
     ALTER TABLE OldEmployees RENAME TO NewEmployees;
