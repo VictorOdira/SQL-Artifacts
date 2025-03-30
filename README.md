@@ -96,7 +96,6 @@ Data Definition Language (DDL) is a subset of SQL used to define and manage the 
 * **Database Design:-** Proper DDL usage is crucial for effective database design.
 * **DBMS Specifics:-** Syntax and options may vary across different database management systems (MySQL, PostgreSQL, SQL Server, etc.).
 * **Backups:-** Always back up your database before executing destructive DDL commands like `DROP TABLE`.
-```
 
 ### 4. TRUNCATE TABLE
 
@@ -120,6 +119,8 @@ Data Definition Language (DDL) is a subset of SQL used to define and manage the 
     * `TRUNCATE` generally cannot be rolled back.
 
 ### 5. RENAME TABLE
+
+
 
 * **Purpose:-** Used to change the name of an existing table.
 
