@@ -30,11 +30,10 @@ Data Definition Language (DDL) is a subset of SQL used to define and manage the 
 * **Purpose:** -Used to create a new table in a databse. **CREATE** defines table name, columns, data type and constraints in the following order:
 
     ```sql
-    CREATE TABLE Students (
-        StudentID INT PRIMARY KEY,
-        FirstName VARCHAR(50) NOT NULL,
-        LastName VARCHAR(50),
-        DateOfBirth DATE
+    CREATE TABLE tableName (
+        col1 datatype constraints,
+        col2 datatype constraints,
+        col3 datatype constraints 
     );
     ```
 
