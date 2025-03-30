@@ -37,36 +37,18 @@ Data Definition Language (DDL) is a subset of SQL used to define and manage the 
     );
     ```
 
-
-
-
-
-
-
-
-
-
-      ```sql
-    CREATE TABLE table_name (
-        col1 datatype constraints,
-        col2 datatype constraints,
-        col3 datatype constraints  
-    );
-    ```
-
-
 * **Example:**
 
-    **CREATE TABLE** Employee (
-        EmployeeID **INT PRIMARY KEY NOT NULL**,
-        FirstName **VARCHAR(50) NOT NULL**,
-        LastName **VARCHAR(50) NOT NULL**,
-        BirthDate **DATE**,
-        HireDate **DATE NOT NULL**,
-        MonthlySalary **DECIMAL(10, 2) NOT NULL**   
+    ```sql
+    CREATE TABLE** Employee (
+        EmployeeID INT PRIMARY KEY NOT NULL,
+        FirstName VARCHAR(50) NOT NULL,
+        LastName VARCHAR(50) NOT NULL,
+        BirthDate DATE,
+        HireDate DATE NOT NULL,
+        MonthlySalary DECIMAL(10, 2) NOT NULL   
     );
     ```
-
 * **Key Elements:**
     * **Column Names:** Identifies each column.
     * **Data Types:** Specifies the type of data a column can hold (e.g., `INT`, `VARCHAR`, `DATE`, `DECIMAL`).
