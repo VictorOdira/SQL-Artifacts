@@ -82,6 +82,16 @@ The purpose *ALTER* is modify a structure of an existing table.
   ADD CONSTRAINT unique_email UNIQUE (Email);
   ```
 
+*ALTER TABLE* can also be used to rename a table column. These can be applied in two ways. These are:
+
+```sql
+ALTER TABLE Employees 
+CHANGE COLUMN LastName GivenName VARCHAR(255) NOT NULL;
+
+ALTER TABLE Employees
+RENAME COLUMN GivenName TO LastName;
+```
+
 #### 3. DROP TABLE
 
 The purpose of *DROP* is to delete an entire table and its data.
