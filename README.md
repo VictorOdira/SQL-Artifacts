@@ -127,11 +127,11 @@ Data Manipulation Language (DML) is a subset of SQL used to manipulate data with
           INSERT INTO Employees 
                   (EmployeeID, FirstName, LastName,   BirthDate,  HireDate,  MonthlySalary)
               VALUES
-                  (101, 'Odira', 'Odingo', 10-02-1988, 01-10-2016, 3200), 
-                  (102, 'Bob', 'Kimani', 18-04-1986, 10-02-2011, 6000),
-                  (103, 'Charlie', 'Makokha', 10-02-1983, 30-05-2009, 5000),
-                  (103, 'Dorcas', 'Nyakundi', 10-02-1994, 30-05-2021, 1000);
-           ```
+                  (101, 'Odira', 'Odingo', 1988-10-02, 2016-01-10, 3200), 
+                  (102, 'Bob', 'Kimani', 1986-04-18, 2011-10-02, 6000),
+                  (103, 'Charlie', 'Makokha', 1983-10-02, 2009-12-05, 5000),
+                  (103, 'Dorcas', 'Nyakundi', 1994-11-06, 2021-09-08, 1000);
+      
 
 
 **Keep in Mind**:
