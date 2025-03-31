@@ -241,5 +241,118 @@ ALTER TABLE OldEmployees RENAME TO NewEmployees;
  * *Always check the specific syntax for your DBMS.*
  * *Renaming a table can affect other database objects (views, stored procedures, etc.) that depend on the table.*
 
+## Part 4: SQL WHERE Conditions | AND, OR, NOT, BETWEEN, IN, NOT IN, LIKE
 
+Part 4 explains how to use *SQL WHERE Clause Operators,* including *AND, OR, NOT, BETWEEN, IN, NOT IN, LIKE*. SQL scripts can be found in file named **init_operators.sql**.
 
+#### 1. AND Operator
+
+*AND* operator is used to filter records based on multiple conditions. All specified conditions must be true for a record to be included in the result set.
+
+**Example:** Retrieve all employees from Texas (TX) who have three or more special projects.
+
+```sql
+SELECT *
+FROM Employees
+WHERE State = 'TX' AND specialProjects >= 3;
+```
+#### 2. OR Operator
+
+*OR* operator is used to filter records based on multiple conditions. At least one of the specified conditions must be true for a record to be included in the result set.
+
+**Example**: Retrieve all employees who are either from Texas (TX) or have a salary greater than 50000.
+
+```sql
+SELECT *
+FROM Employees
+WHERE State = 'TX' OR Salary > 50000;
+```
+#### 3. NOT Operator
+
+*NOT* operator is used to negate a condition. It selects records where the condition is false.
+
+**Example**: Find the number of employees with special projects not equal to zero.
+
+```sql
+SELECT COUNT(employeeId)
+FROM Employees
+WHERE NOT specialProjects = 0;
+```
+
+4. BETWEEN Operator
+The BETWEEN operator is used to select values within a given range. The values can be numbers, text, or dates.
+
+**Example**: Retrieve all employees whose salary is between 40000 and 50000 *(inclusive)*.
+
+```sql 
+SELECT *
+FROM Employees
+WHERE Salary BETWEEN 40000 AND 50000;
+```
+
+#### 5. IN Operator
+
+*IN* operator allows you to specify multiple values in a WHERE clause.
+
+**Example**: Find the number of employees who are from Texas (TX) or California (CA).
+
+```sql
+SELECT COUNT(employeeId)
+FROM Employees
+WHERE State IN ('TX', 'CA');
+```
+
+#### 6. NOT IN Operator
+
+*NOT IN* operator is the negation of the *IN* operator. It selects records where a column's value is not in a specified list.
+
+**Example**: Find the number of employees who are not from Texas (TX) or California (CA).
+
+```sql
+SELECT COUNT(employeeId)
+FROM Employees
+WHERE State NOT IN ('TX', 'CA');
+```
+
+#### 7. LIKE Operator
+
+*LIKE* operator is used in a WHERE clause to search for a specified pattern in a column.
+
+% (percent sign): Represents zero, one, or multiple characters.
+_ (underscore): Represents a single character.   
+
+**Examples**:
+
+Find all employees whose first name starts with "a".
+
+```sql
+SELECT *
+FROM Employees
+WHERE firstName LIKE 'A%';
+```
+
+Find all employees whose first name ends with "a".
+
+```sql
+SELECT *
+FROM Employees
+WHERE firstName LIKE '%a';
+```
+
+Find all employees whose first name contains "ri".
+
+```sql
+SELECT *
+FROM Employees
+WHERE firstName LIKE '%ri%';
+```
+
+#### 8. LIKE Operator with Underscore
+
+Find all employees whose second letter of their first name is "r".
+
+```sql
+SELECT *
+FROM Employees
+WHERE firstName LIKE '_r%';
+```
