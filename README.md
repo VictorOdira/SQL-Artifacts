@@ -36,8 +36,7 @@ CREATE TABLE tableName (
    col3 datatype constraints 
 );
 ```
-
-* **Example:**
+**Example:**
 
     ```sql
     CREATE TABLE Employees (
@@ -64,7 +63,7 @@ The purpose *ALTER* is modify a structure of an existing table.
     * *DROP CONSTRAINT* which removes a constraint.
     * *RENAME COLUMN* which renames a column.
       
-* **Examples:**
+**Examples:**
 
     ```sql
     ALTER TABLE Employees
@@ -88,7 +87,7 @@ The purpose of *DROP* is to delete an entire table and its data.
  DROP TABLE tableName;
  ```
 
-* **Example:**
+**Example:**
 
   ```sql
   DROP TABLE Employees;
@@ -184,7 +183,7 @@ The purpose of *TRUNCATE* is remove all rows from a table with the table structu
  TRUNCATE TABLE tableName;
  ```
 
-* **Example:**
+**Example:**
 
 ```sql
 TRUNCATE TABLE Employees;
@@ -201,39 +200,35 @@ TRUNCATE TABLE Employees;
 
 The purpose *RENAME* is change the name of an existing table.
 
-    * **MySQL:**
+**MySQL:**
 
-    ```sql
-    RENAME TABLE oldTableNname TO newTableName;
-    ```
+```sql
+RENAME TABLE oldTableNname TO newTableName;
+```
+**PostgreSQL:**
 
-    * **PostgreSQL:**
+```sql
+ALTER TABLE oldTableName RENAME TO newTableName;
+```
+**SQL Server:**
 
-    ```sql
-    ALTER TABLE oldTableName RENAME TO newTableName;
-    ```
-
-    * **SQL Server:**
-
-    ```sql
-    EXEC sp_rename 'oldTableNname', 'newTableName';
-    ```
-
-   * **Example:  MySQL**
+```sql
+EXEC sp_rename 'oldTableNname', 'newTableName';
+```
+**Example:  MySQL**
 
 ```sql
 RENAME TABLE OldEmployees TO NewEmployees;
 ```
-
-  * **Example PostgreSQL:**
+**Example PostgreSQL:**
 
 ```sql
 ALTER TABLE OldEmployees RENAME TO NewEmployees;
 ```
 
-* **Important Notes:**
-    * Always check the specific syntax for your DBMS.
-    * Renaming a table can affect other database objects (views, stored procedures, etc.) that depend on the table.
-```
+### Keep in Mind:
+    * *Always check the specific syntax for your DBMS.*
+    * *Renaming a table can affect other database objects (views, stored procedures, etc.) that depend on the table.*
+
 
 
