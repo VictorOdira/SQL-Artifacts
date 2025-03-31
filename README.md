@@ -27,7 +27,7 @@ Part 2 gives an overview of Data Definition Language (DDL) commands that include
 Data Definition Language (DDL) is a subset of SQL used to define and manage the structure of database objects. DDL deals with the schema and not the data. The common DDL commands for tables include:
 
  ### 1. CREATE TABLE 
-* **Purpose:** -Used to create a new table in a databse. **CREATE** defines table name, columns, data type and constraints in the following order:
+The purpose of *CREATE* is to create a new table in a databse. **CREATE** defines table name, columns, data type and constraints in the following order:
 
     ```sql
     CREATE TABLE tableName (
@@ -40,7 +40,7 @@ Data Definition Language (DDL) is a subset of SQL used to define and manage the 
 * **Example:**
 
     ```sql
-    CREATE TABLE** Employee (
+    CREATE TABLE Employees (
         EmployeeID INT PRIMARY KEY NOT NULL,
         FirstName VARCHAR(50) NOT NULL,
         LastName VARCHAR(50) NOT NULL,
@@ -49,14 +49,13 @@ Data Definition Language (DDL) is a subset of SQL used to define and manage the 
         MonthlySalary DECIMAL(10, 2) NOT NULL   
     );
     ```
-* For Create table command the following elements must be kept in mind:
-    * **Column names** which identifies each column.
-    * **Data types** that Specifies the type of data a column can hold e.g., `INT`, `VARCHAR`, `DATE`, `DECIMAL(x,y).
-    * **Constraints** which enforces data integrity rules e.g., `PRIMARY KEY`, `FOREIGN KEY`, `NOT NULL`, `UNIQUE`, `CHECK`.
+  **Keep in Mind:
+    * *Column names identify each column.*
+    * *Data types specify the type of data a column can hold e.g., `INT`, `VARCHAR`, `DATE`, `DECIMAL(x,y).*
+    * *Constraints enforce data integrity rules e.g., `PRIMARY KEY`, `FOREIGN KEY`, `NOT NULL`, `UNIQUE`, `CHECK`.*
 
 ### 2. ALTER TABLE
-
-* **Purpose:** used to modify a structure of an existing table.
+The purpose *ALTER* is modify a structure of an existing table.
 * **Operations include:**
     * *ADD COLUMN* which adds a new column to an existing table.
     * *MODIFY COLUMN* which changes a column's data type or constraints.
@@ -76,8 +75,8 @@ Data Definition Language (DDL) is a subset of SQL used to define and manage the 
 
 ### 3. DROP TABLE
 
-* **Purpose:** Deletes an entire table and its data.
-* 
+The purpose of *DROP* is to delete an entire table and its data.
+
     ```sql
     DROP TABLE tableName;
     ```
@@ -87,19 +86,91 @@ Data Definition Language (DDL) is a subset of SQL used to define and manage the 
     ```sql
     DROP TABLE Employees;
     ```
+**Keep in Mind:**
 
-* *Key to Note is that the operation is irreversible (without backups)*.
+  * *Operation is irreversible (without backups) hence verification must be undertaken prior to execution*.
 
-## Important Notes:
+### Keep in Mind:
 
-* **Data Integrity:-** DDL ensures data consistency through constraints.
-* **Database Design:-** Proper DDL usage is crucial for effective database design.
-* **DBMS Specifics:-** Syntax and options may vary across different database management systems (MySQL, PostgreSQL, SQL Server, etc.).
-* **Backups:-** Always back up your database before executing destructive DDL commands like `DROP TABLE`.
+  * *Data integrity ensures data consistency through constraints.
+  * *DBMS Specifics syntax and options may vary across different database management systems (MySQL, PostgreSQL, SQL Server, etc.)*.
+  * *Backups will always back up your database before executing destructive DDL commands like `DROP TABLE`*.
+
+## Part 3: Data Manipulation Language (DML)
+
+Data Manipulation Language (DML) is a subset of SQL used to manipulate data within database tables. Idealy, DML revolves around inserting, updating, deleting, and managing existing data and involves SQL commands such as **INSERT**, **UPDATE**, **DELETE**, **TRUNCATE**, and **RENAME**. 
+
+### 1. INSERT INTO
+
+**INSERT** Statement is used to add new rows of data into a database table. It provides an opportunity to add a single row or multiple rows of data into a table at once. 
+
+**Insert a Single Row:**
+
+           ```sql
+           INSERT INTO Employees (EmployeeID, FirstName, LastName,   BirthDate,  HireDate,  MonthlySalary)
+            VALUES (101, 'Odira', 'Odingo', 10-02-1988, 01-10-2016, 3200)  
+           );
+           ```
+
+**Insert Multiple Rows:**
+
+          ```sql
+          INSERT INTO Employees (EmployeeID, FirstName, LastName,   BirthDate,  HireDate,  MonthlySalary)
+           VALUES
+                  (101, 'Odira', 'Odingo', 10-02-1988, 01-10-2016, 3200) 
+                  (102, 'Bob', 'Kimani', 18-04-1986, 10-02-2011, 6000),
+                  (103, 'Charlie', 'Makokha', 10-02-1983, 30-05-2009, 5000),
+                  (103, 'Dorcas', 'Nyakundi', 10-02-1994, 30-05-2021, 1000);
+           ```
+
+
+**Keep in Mind**:
+   * *It is optional to specfiy the column names given that SQL expects the values for all columns.*
+   * *Number of columns, values and respective data types must be matched.*
+
+### 2. UPDATE TABLE
+ 
+**UPDATE** modifies existing data in a table. It is important that just as **INSERT** one can update one or more rows based on specified conditions. In order to update a specific row,  the **WHERE** clause must be used to identify the row to affected.
+
+**Update a Single Row:**
+
+       ```sql
+          UPDATE Employees
+               SET MonthlySalary = 5000
+               WHERE EmployeeID = 101;
+           ```
+
+**Update Multiple Rows:**
+Multiple rows can be updated by omitting the **WHERE** clause or by using a condition that matches multiple rows.
+
+       ```sql
+          UPDATE Employees
+              SET MonthlySalary = MonthlySalary * 1.5,  BirthDate = 12-11-1986
+              WHERE EmployeeID = 103;
+           ```
+
+### 3. DELETE 
+
+**DELETE** is used while removing rows from a table. One can use **DELETE** to remove specific rows or all rows depending on the nature of condition provided. When one is targeting a specific row, he or she must use the **WHERE** clause. 
+
+**Deleting a Single Row**:
+
+       ```sql
+          DELETE FROM Employees
+          WHERE EmployeeID = 103;
+           ```
+
+  **Deleting Multiple Rows**:
+
+       ```sql
+          DELETE FROM Employees
+          WHERE Department = 'Sales';
+       ```
+
 
 ### 4. TRUNCATE TABLE
 
-* **Purpose:-** used to remove all rows from a table with the table structure remaining.
+The purpose of *TRUNCATE* is remove all rows from a table with the table structure remaining intact.
 
     ```sql
     TRUNCATE TABLE tableName;
@@ -111,18 +182,16 @@ Data Definition Language (DDL) is a subset of SQL used to define and manage the 
     TRUNCATE TABLE Employees;
     ```
 
-* **Key Differences from `DELETE`:**
-    * `TRUNCATE` resets auto-incrementing counters. `DELETE` does not.
-    * `TRUNCATE` is generally faster.
-    * `TRUNCATE` cannot be used with a `WHERE` clause. It deletes all rows.
-    * `TRUNCATE` is a DDL command, while `DELETE` is a DML (Data Manipulation Language) command.
-    * `TRUNCATE` generally cannot be rolled back.
+  ### How is *DELETE* different from *TRUNCATE**?:
+  
+    * *TRUNCATE* *resets auto-incrementing counters. *DELETE* does not**.
+    * *TRUNCATE* *is generally faster.*
+    * *TRUNCATE* *cannot be used with a *WHERE* clause. It deletes all rows.*
+    * *TRUNCATE* *generally cannot be rolled back in database systems.*
 
 ### 5. RENAME TABLE
 
-
-
-* **Purpose:-** Used to change the name of an existing table.
+The purpose *RENAME* is change the name of an existing table.
 
     * **MySQL:**
 
