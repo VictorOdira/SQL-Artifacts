@@ -48,15 +48,17 @@ CREATE TABLE tableName (
     MonthlySalary DECIMAL(10, 2) NOT NULL   
  );
  ```
-  **Keep in Mind:**
+**Keep in Mind:**
   
-    * *Column names identify each column.*
-    * *Data types specify the type of data a column can hold e.g., `INT`, `VARCHAR`, `DATE`, `DECIMAL(x,y).*
-    * *Constraints enforce data integrity rules e.g., `PRIMARY KEY`, `FOREIGN KEY`, `NOT NULL`, `UNIQUE`, `CHECK`.*
+* *Column names identify each column.*
+* *Data types specify the type of data a column can hold e.g., `INT`, `VARCHAR`, `DATE`, `DECIMAL(x,y).*
+* *Constraints enforce data integrity rules e.g., `PRIMARY KEY`, `FOREIGN KEY`, `NOT NULL`, `UNIQUE`, `CHECK`.*
 
 #### 2. ALTER TABLE
 The purpose *ALTER* is modify a structure of an existing table.
+
 * **Operations include:**
+  
     * *ADD COLUMN* which adds a new column to an existing table.
     * *MODIFY COLUMN* which changes a column's data type or constraints.
     * *DROP COLUMN* which removes a column.
@@ -66,19 +68,19 @@ The purpose *ALTER* is modify a structure of an existing table.
       
 **Examples:**
 
-    ```sql
-    ALTER TABLE Employees
-    ADD COLUMN Email VARCHAR(100) NOT NULL AFTER BirthDate;
+  ```sql
+  ALTER TABLE Employees
+  ADD COLUMN Email VARCHAR(100) NOT NULL AFTER BirthDate;
     
-    ALTER TABLE Employees
-    MODIFY COLUMN LastName VARCHAR(100);
+  ALTER TABLE Employees
+  MODIFY COLUMN LastName VARCHAR(100);
     
-    ALTER TABLE Employees
-    DROP COLUMN BirthDate;
+  ALTER TABLE Employees
+  DROP COLUMN BirthDate;
     
-    ALTER TABLE Employees
-    ADD CONSTRAINT unique_email UNIQUE (Email);
-    ```
+  ALTER TABLE Employees
+  ADD CONSTRAINT unique_email UNIQUE (Email);
+  ```
 
 #### 3. DROP TABLE
 
@@ -96,7 +98,7 @@ The purpose of *DROP* is to delete an entire table and its data.
 **Keep in Mind:**
 
   * *Operation is irreversible (without backups) hence verification must be undertaken prior to execution*.
-  * *Data integrity ensures data consistency through constraints.
+  * *Data integrity ensures data consistency through constraints.*
   * *DBMS Specifics syntax and options may vary across different database management systems (MySQL, PostgreSQL, SQL Server, etc.)*.
   * *Backups will always back up your database before executing destructive DDL commands like `DROP TABLE`*.
 
