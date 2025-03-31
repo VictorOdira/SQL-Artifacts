@@ -118,18 +118,19 @@ INSERT INTO Employees
    (EmployeeID, FirstName, LastName,   BirthDate,  HireDate,  MonthlySalary)
 VALUES 
     (101, 'Odira', 'Odingo', 10-02-1988, 01-10-2016, 3200);
+ ```
 
 **Insert Multiple Rows:**
 
-          ```sql
-          INSERT INTO Employees 
-                  (EmployeeID, FirstName, LastName,   BirthDate,  HireDate,  MonthlySalary)
-              VALUES
-                  (101, 'Odira', 'Odingo', 1988-10-02, 2016-01-10, 3200), 
-                  (102, 'Bob', 'Kimani', 1986-04-18, 2011-10-02, 6000),
-                  (103, 'Charlie', 'Makokha', 1983-10-02, 2009-12-05, 5000),
-                  (103, 'Dorcas', 'Nyakundi', 1994-11-06, 2021-09-08, 1000);
-      
+ ```sql
+INSERT INTO Employees 
+     (EmployeeID, FirstName, LastName,   BirthDate,  HireDate,  MonthlySalary)
+ VALUES
+    (101, 'Odira', 'Odingo', 1988-10-02, 2016-01-10, 3200), 
+    (102, 'Bob', 'Kimani', 1986-04-18, 2011-10-02, 6000),
+    (103, 'Charlie', 'Makokha', 1983-10-02, 2009-12-05, 5000),
+    (103, 'Dorcas', 'Nyakundi', 1994-11-06, 2021-09-08, 1000);
+ ```  
 
 
 **Keep in Mind**:
