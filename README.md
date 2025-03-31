@@ -192,10 +192,10 @@ TRUNCATE TABLE Employees;
 
   ### How is *DELETE* different from *TRUNCATE**?:
   
-    * *TRUNCATE* *resets auto-incrementing counters. *DELETE* does not**.
-    * *TRUNCATE* *is generally faster.*
-    * *TRUNCATE* *cannot be used with a *WHERE* clause. It deletes all rows.*
-    * *TRUNCATE* *generally cannot be rolled back in database systems.*
+    * TRUNCATE resets auto-incrementing counters. DELETE does not.
+    * TRUNCATE is generally faster.
+    * TRUNCATE cannot be used with a *WHERE* clause. It deletes all rows.
+    * *TRUNCATE generally cannot be rolled back in database systems.
 
 ### 5. RENAME TABLE
 
@@ -203,33 +203,33 @@ The purpose *RENAME* is change the name of an existing table.
 
     * **MySQL:**
 
-        ```sql
-        RENAME TABLE oldTableNname TO newTableName;
-        ```
+    ```sql
+    RENAME TABLE oldTableNname TO newTableName;
+    ```
 
     * **PostgreSQL:**
 
-        ```sql
-        ALTER TABLE oldTableName RENAME TO newTableName;
-        ```
+    ```sql
+    ALTER TABLE oldTableName RENAME TO newTableName;
+    ```
 
     * **SQL Server:**
 
-        ```sql
-        EXEC sp_rename 'oldTableNname', 'newTableName';
-        ```
+    ```sql
+    EXEC sp_rename 'oldTableNname', 'newTableName';
+    ```
 
    * **Example:  MySQL**
 
-         ```sql
-         RENAME TABLE OldEmployees TO NewEmployees;
-         ```
+```sql
+RENAME TABLE OldEmployees TO NewEmployees;
+```
 
   * **Example PostgreSQL:**
 
-       ```sql
-       ALTER TABLE OldEmployees RENAME TO NewEmployees;
-       ```
+```sql
+ALTER TABLE OldEmployees RENAME TO NewEmployees;
+```
 
 * **Important Notes:**
     * Always check the specific syntax for your DBMS.
