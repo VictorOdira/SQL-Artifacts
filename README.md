@@ -49,6 +49,7 @@ CREATE TABLE tableName (
  );
  ```
   **Keep in Mind:**
+  
     * *Column names identify each column.*
     * *Data types specify the type of data a column can hold e.g., `INT`, `VARCHAR`, `DATE`, `DECIMAL(x,y).*
     * *Constraints enforce data integrity rules e.g., `PRIMARY KEY`, `FOREIGN KEY`, `NOT NULL`, `UNIQUE`, `CHECK`.*
@@ -93,6 +94,7 @@ The purpose of *DROP* is to delete an entire table and its data.
   DROP TABLE Employees;
   ```
 **Keep in Mind:**
+
   * *Operation is irreversible (without backups) hence verification must be undertaken prior to execution*.
   * *Data integrity ensures data consistency through constraints.
   * *DBMS Specifics syntax and options may vary across different database management systems (MySQL, PostgreSQL, SQL Server, etc.)*.
@@ -128,6 +130,7 @@ INSERT INTO Employees
  ```  
 
 **Keep in Mind**:
+
    * *It is optional to specfiy the column names given that SQL expects the values for all columns.*
    * *Number of columns, values and respective data types must be matched.*
 
@@ -185,6 +188,7 @@ TRUNCATE TABLE Employees;
 ```
 
 **Keep in Mind:**
+
     * *TRUNCATE resets auto-incrementing counters. DELETE does not.*
     * *TRUNCATE is generally faster than DELETE.*
     * *TRUNCATE cannot be used with a *WHERE* clause. It deletes all rows.*
@@ -221,6 +225,7 @@ ALTER TABLE OldEmployees RENAME TO NewEmployees;
 ```
 
 **Keep in Mind:**
+
     * *Always check the specific syntax for your DBMS.*
     * *Renaming a table can affect other database objects (views, stored procedures, etc.) that depend on the table.*
 
