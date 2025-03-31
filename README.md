@@ -116,7 +116,7 @@ Data Manipulation Language (DML) is a subset of SQL used to manipulate data with
 INSERT INTO Employees 
    (EmployeeID, FirstName, LastName,   BirthDate,  HireDate,  MonthlySalary)
 VALUES 
-   (101, 'Odira', 'Odingo', 10-02-1988, 01-10-2016, 3200);
+   (101, 'Odira', 'Odingo', "1988-10-02", "2016-01-10", 3200);
  ```
 
 **Insert Multiple Rows:**
@@ -125,10 +125,10 @@ VALUES
 INSERT INTO Employees 
     (EmployeeID, FirstName, LastName,   BirthDate,  HireDate,  MonthlySalary)
  VALUES
-    (101, 'Odira', 'Odingo', 1988-10-02, 2016-01-10, 3200), 
-    (102, 'Bob', 'Kimani', 1986-04-18, 2011-10-02, 6000),
-    (103, 'Charlie', 'Makokha', 1983-10-02, 2009-12-05, 5000),
-    (103, 'Dorcas', 'Nyakundi', 1994-11-06, 2021-09-08, 1000);
+    (101, 'Odira', 'Odingo', '1988-10-02', '2016-01-10', 3200.00),
+    (102, 'Bob', 'Kimani', '1986-04-18', '2011-02-10', 6000.00),
+    (103, 'Charlie', 'Makokha', '1983-02-10', '2009-05-30', 5000.00),
+    (104, 'Dorcas', 'Nyakundi', '1994-02-10', '2021-05-30', 1000.00);
  ```  
 
 **Keep in Mind**:
@@ -191,10 +191,10 @@ TRUNCATE TABLE Employees;
 
 **Keep in Mind:**
 
-    * *TRUNCATE resets auto-incrementing counters. DELETE does not.*
-    * *TRUNCATE is generally faster than DELETE.*
-    * *TRUNCATE cannot be used with a *WHERE* clause. It deletes all rows.*
-    * *TRUNCATE generally cannot be rolled back in database systems.*
+* *TRUNCATE resets auto-incrementing counters. DELETE does not.*
+* *TRUNCATE is generally faster than DELETE.*
+* *TRUNCATE cannot be used with a *WHERE* clause. It deletes all rows.*
+* *TRUNCATE generally cannot be rolled back in database systems.*
 
 #### 5. RENAME TABLE
 
@@ -228,8 +228,8 @@ ALTER TABLE OldEmployees RENAME TO NewEmployees;
 
 **Keep in Mind:**
 
-    * *Always check the specific syntax for your DBMS.*
-    * *Renaming a table can affect other database objects (views, stored procedures, etc.) that depend on the table.*
+ * *Always check the specific syntax for your DBMS.*
+ * *Renaming a table can affect other database objects (views, stored procedures, etc.) that depend on the table.*
 
 
 
