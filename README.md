@@ -29,13 +29,13 @@ Data Definition Language (DDL) is a subset of SQL used to define and manage the 
  ### 1. CREATE TABLE 
 The purpose of *CREATE* is to create a new table in a databse. **CREATE** defines table name, columns, data type and constraints in the following order:
 
-    ```sql
-    CREATE TABLE tableName (
-        col1 datatype constraints,
-        col2 datatype constraints,
-        col3 datatype constraints 
-    );
-    ```
+```sql
+CREATE TABLE tableName (
+   col1 datatype constraints,
+   col2 datatype constraints,
+   col3 datatype constraints 
+);
+```
 
 * **Example:**
 
@@ -84,15 +84,15 @@ The purpose *ALTER* is modify a structure of an existing table.
 
 The purpose of *DROP* is to delete an entire table and its data.
 
-    ```sql
-    DROP TABLE tableName;
-    ```
+ ```sql
+ DROP TABLE tableName;
+ ```
 
 * **Example:**
 
-    ```sql
-    DROP TABLE Employees;
-    ```
+  ```sql
+  DROP TABLE Employees;
+  ```
 **Keep in Mind:**
 
   * *Operation is irreversible (without backups) hence verification must be undertaken prior to execution*.
@@ -117,14 +117,14 @@ Data Manipulation Language (DML) is a subset of SQL used to manipulate data with
 INSERT INTO Employees 
    (EmployeeID, FirstName, LastName,   BirthDate,  HireDate,  MonthlySalary)
 VALUES 
-    (101, 'Odira', 'Odingo', 10-02-1988, 01-10-2016, 3200);
+   (101, 'Odira', 'Odingo', 10-02-1988, 01-10-2016, 3200);
  ```
 
 **Insert Multiple Rows:**
 
  ```sql
 INSERT INTO Employees 
-     (EmployeeID, FirstName, LastName,   BirthDate,  HireDate,  MonthlySalary)
+    (EmployeeID, FirstName, LastName,   BirthDate,  HireDate,  MonthlySalary)
  VALUES
     (101, 'Odira', 'Odingo', 1988-10-02, 2016-01-10, 3200), 
     (102, 'Bob', 'Kimani', 1986-04-18, 2011-10-02, 6000),
@@ -143,20 +143,20 @@ INSERT INTO Employees
 
 **Update a Single Row:**
 
-       ```sql
-          UPDATE Employees
-               SET MonthlySalary = 5000
-               WHERE EmployeeID = 101;
-           ```
+ ```sql
+ UPDATE Employees
+   SET MonthlySalary = 5000
+   WHERE EmployeeID = 101;
+ ```
 
 **Update Multiple Rows:**
 Multiple rows can be updated by omitting the **WHERE** clause or by using a condition that matches multiple rows.
 
-       ```sql
-          UPDATE Employees
-              SET MonthlySalary = MonthlySalary * 1.5,  BirthDate = 12-11-1986
-              WHERE EmployeeID = 103;
-           ```
+```sql
+UPDATE Employees
+   SET MonthlySalary = MonthlySalary * 1.5,  BirthDate = 12-11-1986
+   WHERE EmployeeID = 103;
+```
 
 ### 3. DELETE 
 
@@ -164,32 +164,31 @@ Multiple rows can be updated by omitting the **WHERE** clause or by using a cond
 
 **Deleting a Single Row**:
 
-       ```sql
-          DELETE FROM Employees
-          WHERE EmployeeID = 103;
-           ```
+ ```sql
+DELETE FROM Employees
+WHERE EmployeeID = 103;
+```
 
   **Deleting Multiple Rows**:
 
-       ```sql
-          DELETE FROM Employees
-          WHERE Department = 'Sales';
-       ```
-
+```sql
+DELETE FROM Employees
+WHERE Department = 'Sales';
+```
 
 ### 4. TRUNCATE TABLE
 
 The purpose of *TRUNCATE* is remove all rows from a table with the table structure remaining intact.
 
-    ```sql
-    TRUNCATE TABLE tableName;
-    ```
+ ```sql
+ TRUNCATE TABLE tableName;
+ ```
 
 * **Example:**
 
-    ```sql
-    TRUNCATE TABLE Employees;
-    ```
+```sql
+TRUNCATE TABLE Employees;
+```
 
   ### How is *DELETE* different from *TRUNCATE**?:
   
