@@ -279,8 +279,9 @@ FROM Employees
 WHERE NOT specialProjects = 0;
 ```
 
-4. BETWEEN Operator
-The BETWEEN operator is used to select values within a given range. The values can be numbers, text, or dates.
+#### 4. BETWEEN Operator
+
+*BETWEEN* operator is used to select values within a given range. The values can be numbers, text, or dates.
 
 **Example**: Retrieve all employees whose salary is between 40000 and 50000 *(inclusive)*.
 
