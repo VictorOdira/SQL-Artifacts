@@ -1,4 +1,5 @@
-USE Sales;
+-- SQL SELECT QUERIES 
+
 -- 1. Retrieve all columns and rows in the sales table
 SELECT *
 FROM salestbl;
@@ -17,7 +18,7 @@ GROUP BY Segment;
 
 -- 4. Find the number of orders per region from the highest to the lowest. 
 SELECT 
-	Region,
+    Region,
     FORMAT(COUNT(Segment),0) AS Count
 FROM salestbl
 GROUP BY Region
