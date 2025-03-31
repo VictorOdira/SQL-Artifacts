@@ -67,10 +67,17 @@ The purpose *ALTER* is modify a structure of an existing table.
 * **Examples:**
 
     ```sql
-    ALTER TABLE Employees ADD COLUMN Email VARCHAR(100) NOT NULL AFTER BirthDate;
-    ALTER TABLE Employees ALTER COLUMN LastName VARCHAR(100);
-    ALTER TABLE Employees DROP COLUMN BirthDate;
-    ALTER TABLE Employees ADD CONSTRAINT unique_email UNIQUE (Email);
+    ALTER TABLE Employees
+    ADD COLUMN Email VARCHAR(100) NOT NULL AFTER BirthDate;
+    
+    ALTER TABLE Employees
+    MODIFY COLUMN LastName VARCHAR(100);
+    
+    ALTER TABLE Employees
+    DROP COLUMN BirthDate;
+    
+    ALTER TABLE Employees
+    ADD CONSTRAINT unique_email UNIQUE (Email);
     ```
 
 ### 3. DROP TABLE
