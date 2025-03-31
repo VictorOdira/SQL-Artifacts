@@ -114,8 +114,10 @@ Data Manipulation Language (DML) is a subset of SQL used to manipulate data with
 **Insert a Single Row:**
 
            ```sql
-           INSERT INTO Employees (EmployeeID, FirstName, LastName,   BirthDate,  HireDate,  MonthlySalary)
-            VALUES (101, 'Odira', 'Odingo', 10-02-1988, 01-10-2016, 3200)  
+           INSERT INTO Employees 
+                (EmployeeID, FirstName, LastName,   BirthDate,  HireDate,  MonthlySalary)
+           VALUES 
+                (101, 'Odira', 'Odingo', 10-02-1988, 01-10-2016, 3200)  
            );
            ```
 
