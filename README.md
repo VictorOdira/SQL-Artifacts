@@ -357,3 +357,76 @@ SELECT *
 FROM Employees
 WHERE firstName LIKE '_r%';
 ```
+
+## Part 4: SQL JOINS 
+
+SQL joins are used to combine rows from two or more tables based on related columns. Part 4 discusses 4 basic types of SQL joins: *INNER JOIN*, *LEFT JOIN* , *RIGHT JOIN* , and *FULL JOIN*
+
+#### 1. INNER JOIN 
+
+*INNER JOIN* only returns matching values from the referred tables. *INNER JOIN* is used to retrieve a match from the referred tables.  
+
+```sql
+SELECT 
+	B.EmployeeID,
+	B.FirstName,
+    B.LastName AS 'Surname',
+    B.Gender,
+    P.MidTermReviewStatus As 'Status',
+    P.PerformanceRating AS Rating,
+    P.ReviewComments AS 'Comments'
+FROM BioData AS B
+INNER JOIN PerformanceDetails AS P
+	     ON P.EmployeeID = B.EmployeeID;
+```
+#### 2. LEFT JOIN (or LEFT OUTER JOIN)
+
+*LEFT JOIN * returns all rows from the left table (BioData), and the matched rows from the right table (PerformanceDetails). If no match is found, NULL values are returned for columns from the right table. Usually, *LEFT JOIN* is used when one wants to include all records from the left table, even if there are no matches in the right table.
+
+```sql
+SELECT 
+	B.EmployeeID,
+	B.FirstName,
+    B.LastName AS 'Surname',
+    B.Gender,
+    P.MidTermReviewStatus As 'Status',
+    P.PerformanceRating AS Rating,
+    P.ReviewComments AS 'Comments'
+FROM BioData AS B
+LEFT JOIN PerformanceDetails AS P
+	     ON P.EmployeeID = B.EmployeeID;
+```
+#### 3. RIGHT JOIN (or RIGHT OUTER JOIN)
+
+*RIGHT JOIN* returns all rows from the right table (PerformanceDetails), and the matched rows from the left table (BioData). If no match is found, NULL values are returned for columns from the left table. In terms of use case when one wants to include all records from the right table, even if there are no matches in the left table, *RIGHT JOIN* is the best.
+
+```sql
+SELECT 
+	B.EmployeeID,
+	B.FirstName,
+    B.LastName AS 'Surname',
+    B.Gender,
+    P.MidTermReviewStatus As 'Status',
+    P.PerformanceRating AS Rating,
+    P.ReviewComments AS 'Comments'
+FROM BioData AS B
+RIGHT JOIN PerformanceDetails AS P
+	     ON P.EmployeeID = B.EmployeeID;
+```
+#### 4. FULL JOIN (or FULL OUTER JOIN)
+
+*FULL JOIN* returns all rows when there is a match in either the left (BioData) or right (PerformanceDetails) table. Rows without a match in one of the tables will have NULL values for columns from that table. *FULL JOIN* is used when you want to include all records from both tables, regardless of whether there is a match.
+
+```sql
+SELECT 
+	B.EmployeeID,
+	B.FirstName,
+    B.LastName AS 'Surname',
+    B.Gender,
+    P.MidTermReviewStatus As 'Status',
+    P.PerformanceRating AS Rating,
+    P.ReviewComments AS 'Comments'
+FROM BioData AS B
+FULL JOIN PerformanceDetails AS P
+	     ON P.EmployeeID = B.EmployeeID;
+```
