@@ -6,11 +6,11 @@
 SELECT 
 	B.EmployeeID,
 	B.FirstName,
-  B.LastName AS 'Surname',
-  B.Gender,
-  P.MidTermReviewStatus As 'Status',
-  P.PerformanceRating AS Rating,
-  P.ReviewComments AS 'Comments'
+	B.LastName AS 'Surname',
+	B.Gender,
+	P.MidTermReviewStatus As 'Status',
+	P.PerformanceRating AS Rating,
+	P.ReviewComments AS 'Comments'
 FROM BioData AS B
 INNER JOIN PerformanceDetails AS P
 	     ON P.EmployeeID = B.EmployeeID;
@@ -20,11 +20,11 @@ INNER JOIN PerformanceDetails AS P
 SELECT 
 	B.EmployeeID,
 	B.FirstName,
-    B.LastName AS 'Surname',
-    B.Gender,
-    P.MidTermReviewStatus As 'Status',
-    P.PerformanceRating AS Rating,
-    P.ReviewComments AS 'Comments'
+	B.LastName AS 'Surname',
+	B.Gender,
+	P.MidTermReviewStatus As 'Status',
+	P.PerformanceRating AS Rating,
+	P.ReviewComments AS 'Comments'
 FROM BioData AS B
 LEFT JOIN PerformanceDetails AS P
 	     ON P.EmployeeID = B.EmployeeID;
@@ -34,11 +34,11 @@ LEFT JOIN PerformanceDetails AS P
 SELECT 
 	B.EmployeeID,
 	B.FirstName,
-  B.LastName AS 'Surname',
-  B.Gender,
-  P.MidTermReviewStatus As 'Status',
-  P.PerformanceRating AS Rating,
-  P.ReviewComments AS 'Comments'
+	B.LastName AS 'Surname',
+	B.Gender,
+	P.MidTermReviewStatus As 'Status',
+	P.PerformanceRating AS Rating,
+	P.ReviewComments AS 'Comments'
 FROM BioData AS B
 RIGHT JOIN PerformanceDetails AS P
 	     ON P.EmployeeID = B.EmployeeID;
@@ -48,11 +48,30 @@ RIGHT JOIN PerformanceDetails AS P
 SELECT 
 	B.EmployeeID,
 	B.FirstName,
-  B.LastName AS 'Surname',
-  B.Gender,
-  P.MidTermReviewStatus As 'Status',
-  P.PerformanceRating AS Rating,
-  P.ReviewComments AS 'Comments'
+	B.LastName AS 'Surname',
+	B.Gender,
+	P.MidTermReviewStatus As 'Status',
+	P.PerformanceRating AS Rating,
+	P.ReviewComments AS 'Comments'
 FROM BioData AS B
 FULL JOIN PerformanceDetails AS P
 	     ON P.EmployeeID = B.EmployeeID;
+
+-- JOINING MULTIPLE TABLES 
+
+SELECT
+	B.EmployeeID,
+	B.FirstName,
+	B.LastName AS 'Surname',
+	B.Gender,
+	P.MidTermReviewStatus As 'Status',
+	P.PerformanceRating AS Rating,
+	P.ReviewComments AS 'Comments',
+	R.MonthlySalary AS Salary
+FROM BioData AS B
+LEFT JOIN PerformanceDetails AS P 
+	ON B.EmployeeID = P.EmployeeID
+LEFT JOIN RenumerationAndAllowance AS R
+	ON P.RemunerationID = R.RemunerationID
+
+
