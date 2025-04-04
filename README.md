@@ -450,3 +450,15 @@ LEFT JOIN PerformanceDetails AS P
 LEFT JOIN RenumerationAndAllowance AS R
 	ON P.RemunerationID = R.RemunerationID
 ```
+## Part 5: SQL SET OPERATORS: *UNION*, *UNION ALL*, *INTERSECT*, *AND EXCEPT*
+
+Set operators in SQL are techniques for combining or comparing the results of two or more SELECT statements. Set operators act like mathematical set operations for finding the union, intersection, or difference between the rows returned by our queries. 
+It is important to note that *SET OPERATORS* can be used together with almost all the clauses *WHERE*, *GROUP BY*, *JOIN*, *HAVING*. Note that *ORDER BY* is allowed only once at the end of a query.
+
+#### 1. UNION 
+
+*UNION* operator merges the results of two or more SELECT queries (statements) into a single result set. It removes duplicate rows by default. 
+
+
+ 
+
