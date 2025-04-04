@@ -430,3 +430,23 @@ FROM BioData AS B
 FULL JOIN PerformanceDetails AS P
 	     ON P.EmployeeID = B.EmployeeID;
 ```
+#### 5. JOINING MULTIPLE TABLES 
+
+Joining multiple tables assist in retrieving data from multiple related tables (BioData, PerformanceDetails, and RenumerationAndAllowance ) and combines them into a single result set. Joining multiple tables allows one to get a comprehensive view of the information.
+
+```sql
+SELECT
+	B.EmployeeID,
+	B.FirstName,
+	B.LastName AS 'Surname',
+	B.Gender,
+	P.MidTermReviewStatus As 'Status',
+	P.PerformanceRating AS Rating,
+	P.ReviewComments AS 'Comments',
+	R.MonthlySalary AS Salary
+FROM BioData AS B
+LEFT JOIN PerformanceDetails AS P 
+	ON B.EmployeeID = P.EmployeeID
+LEFT JOIN RenumerationAndAllowance AS R
+	ON P.RemunerationID = R.RemunerationID
+```
