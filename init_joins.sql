@@ -13,7 +13,7 @@ SELECT
 	P.ReviewComments AS 'Comments'
 FROM BioData AS B
 INNER JOIN PerformanceDetails AS P
-	     ON P.EmployeeID = B.EmployeeID;
+	ON P.EmployeeID = B.EmployeeID;
 
 --- LEFT JOIN (or LEFT OUTER JOIN)
 
@@ -27,7 +27,7 @@ SELECT
 	P.ReviewComments AS 'Comments'
 FROM BioData AS B
 LEFT JOIN PerformanceDetails AS P
-	     ON P.EmployeeID = B.EmployeeID;
+	ON P.EmployeeID = B.EmployeeID;
 
 -- RIGHT JOIN (or RIGHT OUTER JOIN)
 
@@ -41,7 +41,7 @@ SELECT
 	P.ReviewComments AS 'Comments'
 FROM BioData AS B
 RIGHT JOIN PerformanceDetails AS P
-	     ON P.EmployeeID = B.EmployeeID;
+	ON P.EmployeeID = B.EmployeeID;
 
 --  FULL JOIN (or FULL OUTER JOIN)
 
@@ -55,7 +55,7 @@ SELECT
 	P.ReviewComments AS 'Comments'
 FROM BioData AS B
 FULL JOIN PerformanceDetails AS P
-	     ON P.EmployeeID = B.EmployeeID;
+	ON P.EmployeeID = B.EmployeeID;
 
 -- JOINING MULTIPLE TABLES 
 
