@@ -13,15 +13,15 @@ INSERT INTO Employees
 	(EmployeeID, FirstName, LastName,   BirthDate,  HireDate,  MonthlySalary)
 VALUES
 	(101, 'Odira', 'Odingo', '1988-10-02', '2016-01-10', 3200.00),
-  (102, 'Bob', 'Kimani', '1986-04-18', '2011-02-10', 6000.00),
-  (103, 'Charlie', 'Makokha', '1983-02-10', '2009-05-30', 5000.00),
-   (104, 'Dorcas', 'Nyakundi', '1994-02-10', '2021-05-30', 1000.00);
+	(102, 'Bob', 'Kimani', '1986-04-18', '2011-02-10', 6000.00),
+	(103, 'Charlie', 'Makokha', '1983-02-10', '2009-05-30', 5000.00),
+	(104, 'Dorcas', 'Nyakundi', '1994-02-10', '2021-05-30', 1000.00);
     
 -- 3. Update monthly salary for the Dorcas Nyakundi from USD 1000 to USD 2500
 
 UPDATE Employees
 	SET MonthlySalary = 2500
-    WHERE EmployeeID = 104;
+    	WHERE EmployeeID = 104;
     
 -- 4. Remove Charlie Makokha from the payroll since he has left the institution 
 
