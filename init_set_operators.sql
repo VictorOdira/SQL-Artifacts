@@ -1,5 +1,12 @@
 -- SET OPERATORS 
 
+-- Rules of SET Operators 
+-- ORDER BY can only be used once;
+-- Tables to be combined must have the same number of columns;
+-- Columns must have matching data types;
+-- Columns must be in the same order; and
+-- One should map the same columns in order to obtain an accurate result.
+
  -- UNION
 
 SELECT
