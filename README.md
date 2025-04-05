@@ -455,10 +455,166 @@ LEFT JOIN RenumerationAndAllowance AS R
 Set operators in SQL are techniques for combining or comparing the results of two or more SELECT statements. Set operators act like mathematical set operations for finding the union, intersection, or difference between the rows returned by our queries. 
 It is important to note that *SET OPERATORS* can be used together with almost all the clauses *WHERE*, *GROUP BY*, *JOIN*, *HAVING*. Note that *ORDER BY* is allowed only once at the end of a query.
 
+#### Rules of SET Operators
+
+* ORDER BY can only be used once; 
+* Tables to be combined must have the same number of columns;
+* Columns must have matching data types; 
+* Columns must be in the same order; and
+* One should map the same columns in order to obtain an accurate result. 
+
 #### 1. UNION 
 
-*UNION* operator merges the results of two or more SELECT queries (statements) into a single result set. It removes duplicate rows by default. 
+*UNION* operator merges the results of two or more SELECT queries (statements) into a single result set. It removes duplicate rows by default. This means that it only retrieves distinct rows. 
+
+```sql
+SELECT
+	Archive_Date AS "Admission Date",
+    Speciality,
+    Adult_Child AS Category,
+    Age_Profile AS "Age Profile",
+    Time_Bands AS Period,
+    Total 
+FROM Hospital2018 
+UNION 
+SELECT
+	Archive_Date, 
+	Speciality,
+	Adult_Child,
+	Age_Profile, 
+	Time_Bands, 
+	Total 
+FROM Hospital2019;
+```
+**Combining tables using *UNION* and obtaining *COUNT* of rows**
+
+SELECT 
+	COUNT(*)
+FROM (
+		SELECT *
+		FROM Hospital2018
+
+		UNION
+
+		SELECT *
+		FROM Hospital2019
+        ) AS Combined_Data;
 
 
- 
+#### 2. UNION ALL
+
+*UNION ALL* operator merges the results of two or more SELECT queries (statements) into a single result set. It includes duplicates as well.
+
+```sql
+SELECT
+	Archive_Date AS "Admission Date",
+	Speciality,
+	Adult_Child AS Category,
+	Age_Profile AS "Age Profile",
+	Time_Bands AS Period,
+	Total 
+FROM Hospital2018 
+
+UNION ALL
+    
+SELECT
+	Archive_Date, 
+	Speciality,
+	Adult_Child,
+	Age_Profile, 
+	Time_Bands, 
+	Total 
+FROM Hospital2019;
+```
+#### 3. EXCEPT / MINUS 
+
+*EXCEPT / MINUS* (depending on the SQL) returns all distinct rows from the first query that are not found in the second query. *EXCEPT / MINUS* is not dirrectly supported in MySQL, therefore *LEFT JOIN* with a WHERE ... IS NULL clause is utilised to achieve the same result.
+
+```sql
+SELECT
+	Archive_Date AS "Admission Date",
+	Speciality,
+	Adult_Child AS Category,
+	Age_Profile AS "Age Profile",
+	Time_Bands AS Period,
+	Total 
+FROM Hospital2018 
+
+EXCEPT
+    
+SELECT
+	Archive_Date, 
+	Speciality,
+	Adult_Child,
+	Age_Profile, 
+	Time_Bands, 
+	Total 
+FROM Hospital2019;
+```
+
+**LEFT JOIN with WHERE Clause for EXCEPT in MySQL**
+
+SELECT
+    h18.Archive_Date AS "Admission Date",
+    h18.Speciality,
+    h18.Adult_Child AS Category,
+    h18.Age_Profile AS "Age Profile",
+    h18.Time_Bands AS Period,
+    h18.Total
+FROM Hospital2018 h18
+LEFT JOIN Hospital2019 h19 ON
+    h18.Archive_Date = h19.Archive_Date AND
+    h18.Speciality = h19.Speciality AND
+    h18.Adult_Child = h19.Adult_Child AND
+    h18.Age_Profile = h19.Age_Profile AND
+    h18.Time_Bands = h19.Time_Bands AND
+    h18.Total = h19.Total
+WHERE h19.Archive_Date IS NULL;
+
+#### 4. INTERSECT 
+
+*INTERSECT* will only return common rows in both queries. 
+
+
+```sql
+SELECT
+	Archive_Date AS "Admission Date",
+	Speciality,
+	Adult_Child AS Category,
+	Age_Profile AS "Age Profile",
+	Time_Bands AS Period,
+	Total 
+FROM Hospital2018 
+
+INTERSECT
+    
+SELECT
+	Archive_Date, 
+	Speciality,
+	Adult_Child,
+	Age_Profile, 
+	Time_Bands, 
+	Total 
+FROM Hospital2019;
+```
+**Note:** Some versions of MySQl does not support *INTERSECT* hence it can be emulated by the following:
+
+```sql
+SELECT
+    h18.Archive_Date AS "Admission Date",
+    h18.Speciality,
+    h18.Adult_Child AS Category,
+    h18.Age_Profile AS "Age Profile",
+    h18.Time_Bands AS Period,
+    h18.Total
+FROM Hospital2018 h18
+INNER JOIN Hospital2019 h19 ON
+    h18.Archive_Date = h19.Archive_Date AND
+    h18.Speciality = h19.Speciality AND
+    h18.Adult_Child = h19.Adult_Child AND
+    h18.Age_Profile = h19.Age_Profile AND
+    h18.Time_Bands = h19.Time_Bands AND
+    h18.Total = h19.Total;
+```
+
 
