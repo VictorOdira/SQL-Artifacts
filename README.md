@@ -635,7 +635,7 @@ They include functions for *Manipulation*, *Calculation*, and *Extraction*.
 
 **Manipulation** functions include: 
 
-**CONCAT**
+**(a). CONCAT:** combines multiple strings into one. 
 
 ```sql 
 SELECT 
@@ -646,7 +646,111 @@ FROM Employees;
 ```
 **Use UPDATE and CONCAT**
 
+```sql
 UPDATE Employees
-SET 
+SET fullName = CONCAT(firstName, ' ' , lastName);
+```
+**(b) UPPER:** converts all characters into uppercase. 
 
+```sql 
+SELECT 
+	UPPER(FirstName) AS UpperName 
+FROM Employees;
+```
+	
+**(c) LOWER:** converts all characters into lowercase. 
+
+```sql 
+SELECT 
+	LOWER(FirstName) AS LowerName 
+FROM Employees;
+```
+
+**(d) TRIM:** removes leading and trailing spaces (white spaces) from a string value.  
+
+```sql 
+SELECT 
+	TRIM(Position) 
+FROM Employees;
+```
+*How to know a column has records (Column Name - Position) with leading or trailing spaces*
+
+```sql 
+SELECT 
+	Position 
+FROM Employees
+WHERE Position != TRIM(Position);
+```
+*How to use both UPDATE and TRIM in order to update records in a table*
+
+```sql 
+UPDATE Employees
+SET Position = TRIM(Position);
+```
+*How to use both UPDATE and TRIM in order to update records in a table with a WHERE Clause*
+
+```sql 
+UPDATE Employees
+SET Position = TRIM(Position)
+WHERE Position != TRIM(Position);
+```
+
+**(e) REPLACE:** replaces a specific character with a new charater or removes a character.  Both the *Old Value* and *New Value* must be specified. 
+
+For instance replacing '-' with a '/' from this record '30-02-2024' 
+
+```sql
+REPLACE('30-02-2024', '-', '/')
+```
+In order to remove a charater from a record, an empty string is used as per the example below. 
+
+```sql
+REPLACE('30-02-2024', '-', '')
+```
+
+*How to use both UPDATE and REPLACE in order to update records of a column*
+
+```sql 
+UPDATE Employees
+SET Position = REPLACE(Position, ',', '')
+```
+**Calculation** functions include: 
+
+**(f) LEN in other familiies of SQL and LENGTH for MySQL:** LEN or LENGTH counts the number of characters in a string.
+
+
+```sql 
+SELECT 
+	LEN(FirstName) AS character_count
+FROM Employees;
+```
+or 
+
+```sql 
+SELECT 
+	LENGTH(FirstName) AS character_count
+FROM Employees;
+```
+**String Extraction** functions include: 
+
+ For string extraction either *LEFT* or *RIGHT* maybe used depending on the position of the characters of interest. 
+
+**(g) LEFT:** Extracts specific characters from the *Start*.
+
+```sql
+SELECT 
+	LEFT(Department, 3) AS DepartmentID
+FROM Employees; 
+```
+
+
+**(h) RIGHT:** Extracts specific characters from the *End*.
+
+```sql
+SELECT 
+	RIGHT(Department, 3) AS DepartmentID
+FROM Employees; 
+```
+
+ 
 	
