@@ -617,4 +617,36 @@ INNER JOIN Hospital2019 h19 ON
     h18.Total = h19.Total;
 ```
 
+## Part 6: SQL FUNCTIONS 
 
+The SQL Functions are used to *Clean*, *Transform*, *Analyse* and *Manipulate* data in a table. Note that a function is a built-in SQL code which:
+* accepts an input value;
+* processess it; and 
+* returns an output value. 
+
+**Types of Functions:**
+
+* *Single_Row Functions:* String, Date and Time, Numeric and NUll fuctions. 
+* *Multiple_Row Functions:* Aggregations (Basic) and Windows (Advanced) 
+
+#### 1. String Functions 
+
+They include functions for *Manipulation*, *Calculation*, and *Extraction*.  
+
+**Manipulation** functions include: 
+
+**CONCAT**
+
+```sql 
+SELECT 
+	FirstName, 
+	lastName,
+	CONCAT(firstName, ' ', lastName) AS 'Full Name'
+FROM Employees;
+```
+**Use UPDATE and CONCAT**
+
+UPDATE Employees
+SET 
+
+	
