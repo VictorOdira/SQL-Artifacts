@@ -752,5 +752,49 @@ SELECT
 FROM Employees; 
 ```
 
- 
-	
+## Part 7: SQL DATE & TIME FUNCTIONS 
+
+SQL provides a robust set of functions for handling date and time data, which are essential for performing various operations in data analysis, reporting, and application development. The functions allow for extraction of specific parts of a date or time, format dates for readability, perform calculations such as adding or subtracting intervals, validate date values, and cast between different data types. 
+
+#### 1. Part Extraction 
+
+Extracting specific components (e.g., year, month, day, hour, minute, second) from a date or timestamp is a common requirement in day-to-day operations and development. Idealyy, they are used to extract the year and month from a transaction date to analyze monthly or yearly sales trends and for seasonal analysis where one can identify patterns by extracting quarters or weeks from a dataset.
+
+They include *DAY*, *MONTH*, *YEAR*, *DATEPART*, *DATENAME*, *DATETRUNC*, and *EOMONTH*
+
+**DAY, MONTH, and YEAR:** usaully used in MySQL. These can also be used in SQL Server. 
+
+```sql
+SELECT 
+    YEAR(order_date) AS order_year,
+    MONTH(order_date) AS order_month,
+    DAY(order_date) AS order_day
+FROM orders;
+```
+**DATEPART** has a syntax *DATEPART(part, date)* which specifies part of the date or time one wants to extract for use. 
+
+```sql
+SELECT 
+	DATEPART(year, order_date) AS order_year,
+	DATEPART(month, order_date) AS order_month,
+	DATEPART(day, order_date) AS order_day,
+	DATEPART(hour, order_date) AS order_hour,
+	DATEPART(weekday, order_date) AS weekday_number,
+	DATEPART(millisecond, order_date) AS milliseconds
+FROM orders;
+```
+*Use Cases for DATEPART()*
+DATEPART() can be used to group data by specific time intervals, such as months or quarters, for reporting purposes.
+
+```sql
+SELECT 
+    DATEPART(year, order_date) AS order_year,
+    DATEPART(month, order_date) AS order_month,
+    SUM(order_amount) AS total_sales
+FROM orders
+GROUP BY DATEPART(year, order_date), DATEPART(month, order_date);
+```
+
+*Note:*
+* *DATEPART()* is used in SQL Server
+* *EXTRACT ()* is used in both PostgreSQL and Oracle 
